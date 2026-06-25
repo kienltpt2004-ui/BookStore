@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm - AyaBook Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AyaBook Admin</div>
+            </div>
+            <nav class="sidebar-menu">
+                <button class="tab-btn active" data-tab="dashboard">📊 Thống Kê</button>
+                <button class="tab-btn" data-tab="products">📦 Sản Phẩm</button>
+                <button class="tab-btn" data-tab="users">👤 Tài Khoản</button>
+                <button class="tab-btn" data-tab="categories">📚 Danh Mục</button>
+                <button class="tab-btn" data-tab="orders">🛒 Đơn Hàng</button>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="manhinhchinh.html" class="back-home">🏠 Trang chủ</a>
+                <div class="user-info">
+                    <span id="adminEmail"></span>
+                </div>
+                <button id="logout" class="btn-logout">🚪 Đăng xuất</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+        <!-- TAB CONTENT: DASHBOARD/THỐNG KÊ -->
+        <div id="tab-dashboard" class="tab-content active">
+            <div class="page-header">
+                <h1>📊 Tổng Quan Hệ Thống</h1>
+                <button id="btnRefreshStats" class="btn-primary">🔄 Làm mới</button>
+            </div>
+
+            <!-- STATISTICS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card stat-products">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Tổng Sản Phẩm</p>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-orders">
+                    <div class="stat-icon">🛒</div>
+                    <div class="stat-info">
+                        <h3 id="totalOrders">0</h3>
+                        <p>Tổng Đơn Hàng</p>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-revenue">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3 id="totalRevenue">0đ</h3>
+                        <p>Tổng Doanh Thu</p>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-users">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Tổng Người Dùng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER STATUS CHART -->
+            <div class="dashboard-section">
+                <h2>📈 Thống Kê Đơn Hàng Theo Trạng Thái</h2>
+                <div class="status-stats">
+                    <div class="status-stat-item">
+                        <div class="status-stat-bar" id="pendingBar"></div>
+                        <div class="status-stat-info">
+                            <span class="status-label">⏳ Đang xử lý</span>
+                            <span class="status-count" id="pendingCount">0</span>
+                        </div>
+                    </div>
+                    <div class="status-stat-item">
+                        <div class="status-stat-bar" id="shippingBar"></div>
+                        <div class="status-stat-info">
+                            <span class="status-label">🚚 Đang giao</span>
+                            <span class="status-count" id="shippingCount">0</span>
+                        </div>
+                    </div>
+                    <div class="status-stat-item">
+                        <div class="status-stat-bar" id="deliveredBar"></div>
+                        <div class="status-stat-info">
+                            <span class="status-label">✅ Đã giao</span>
+                            <span class="status-count" id="deliveredCount">0</span>
+                        </div>
+                    </div>
+                    <div class="status-stat-item">
+                        <div class="status-stat-bar" id="cancelledBar"></div>
+                        <div class="status-stat-info">
+                            <span class="status-label">❌ Đã hủy</span>
+                            <span class="status-count" id="cancelledCount">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOP SELLING PRODUCTS -->
+            <div class="dashboard-section">
+                <h2>🏆 Top 5 Sản Phẩm Bán Chạy</h2>
+                <div class="table-container">
+                    <table id="topProductsTable">
+                        <thead>
+                            <tr>
+                                <th>Hạng</th>
+                                <th>Sản Phẩm</th>
+                                <th>Danh Mục</th>
+                                <th>Đã Bán</th>
+                                <th>Tồn Kho</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topProductsBody">
+                            <!-- Top products will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RECENT ORDERS -->
+            <div class="dashboard-section">
+                <h2>🕒 Đơn Hàng Gần Đây</h2>
+                <div class="table-container">
+                    <table id="recentOrdersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Khách Hàng</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Thời Gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersBody">
+                            <!-- Recent orders will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: SẢN PHẨM -->
+        <div id="tab-products" class="tab-content">
+            <div class="page-header">
+                <h1>Quản Lý Sản Phẩm</h1>
+                <button id="btnAddProduct" class="btn-primary">➕ Thêm Sản Phẩm Mới</button>
+            </div>
+
+            <!-- FILTER -->
+            <div class="filter-section">
+                <label>Lọc theo danh mục:</label>
+                <select id="categoryFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="newBooks">Sách Mới</option>
+                    <option value="bestSellers">Bán Chạy</option>
+                    <option value="manga">Manga</option>
+                    <option value="life">Kỹ Năng Sống</option>
+                </select>
+            </div>
+
+            <!-- PRODUCT TABLE -->
+            <div class="table-container">
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tên Sách</th>
+                            <th>Giá</th>
+                            <th>Danh Mục</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- Sản phẩm sẽ được render ở đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: TÀI KHOẢN -->
+        <div id="tab-users" class="tab-content">
+            <div class="page-header">
+                <h1>Quản Lý Tài Khoản</h1>
+                <button id="btnAddUser" class="btn-primary">➕ Thêm Tài Khoản Mới</button>
+            </div>
+
+            <!-- USER TABLE -->
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Tên</th>
+                            <th>Mật Khẩu</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Users sẽ được render ở đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: DANH MỤC -->
+        <div id="tab-categories" class="tab-content">
+            <div class="page-header">
+                <h1>Quản Lý Danh Mục</h1>
+                <button id="btnAddCategory" class="btn-primary">➕ Thêm Danh Mục Mới</button>
+            </div>
+            <p style="color: #6c757d; font-size: 14px; margin-bottom: 20px;">Quản lý các danh mục sản phẩm của cửa hàng
+            </p>
+
+            <!-- CATEGORIES TABLE -->
+            <div class="table-container">
+                <table id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th>Mã Danh Mục</th>
+                            <th>Tên Hiển Thị</th>
+                            <th>Số Sản Phẩm</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoryTableBody">
+                        <!-- Categories sẽ được render ở đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: ĐƠN HÀNG -->
+        <div id="tab-orders" class="tab-content">
+            <div class="page-header">
+                <h1>Quản Lý Đơn Hàng</h1>
+            </div>
+            <p style="color: #6c757d; font-size: 14px; margin-bottom: 20px;">Theo dõi và quản lý lịch sử đặt hàng của
+                khách hàng</p>
+
+            <div class="table-container">
+                <table id="orderTable">
+                    <thead>
+                        <tr>
+                            <th>ID Đơn Hàng</th>
+                            <th>Khách Hàng</th>
+                            <th>Tổng Tiền</th>
+                            <th>Phương Thức</th>
+                            <th>Thanh Toán</th>
+                            <th>Trạng Thái</th>
+                            <th>Ngày Đặt</th>
+                            <th>Chi Tiết</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+                        <!-- Đơn hàng sẽ được render ở đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+    <!-- MODAL THÊM/SỬA SẢN PHẨM -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Thêm Sản Phẩm Bán Chạy</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productTitle">Tên sách *</label>
+                    <input type="text" id="productTitle" required placeholder="VD: Doraemon - Tập 1">
+                </div>
+
+                <div class="form-group">
+                    <label for="productPrice">Giá *</label>
+                    <input type="text" id="productPrice" required placeholder="VD: 35,000đ">
+                </div>
+
+                <div class="form-group">
+                    <label for="productImg">Link ảnh *</label>
+                    <input type="text" id="productImg" required placeholder="VD: ./img/image1.png">
+                </div>
+
+                <div class="form-group">
+                    <label for="productCategory">Danh mục *</label>
+                    <select id="productCategory" required>
+                        <option value="">-- Chọn danh mục --</option>
+                        <option value="newBooks">Sách Mới</option>
+                        <option value="bestSellers">Bán Chạy</option>
+                        <option value="manga">Manga</option>
+                        <option value="life">Kỹ Năng Sống</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">💾 Lưu</button>
+                    <button type="button" class="btn-secondary" id="btnCancelModal">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL THÊM/SỬA TÀI KHOẢN -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="userModalTitle">Thêm Tài Khoản Mới</h2>
+                <span class="close-user">&times;</span>
+            </div>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="userEmail">Email *</label>
+                    <input type="email" id="userEmail" required placeholder="VD: user@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="userName">Tên *</label>
+                    <input type="text" id="userName" required placeholder="VD: Nguyễn Văn A">
+                </div>
+
+                <div class="form-group">
+                    <label for="userPassword">Mật khẩu *</label>
+                    <input type="password" id="userPassword" required placeholder="Nhập mật khẩu">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">💾 Lưu</button>
+                    <button type="button" class="btn-secondary" id="btnCancelUserModal">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL CHI TIẾT ĐƠN HÀNG -->
+    <div id="orderDetailModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>Chi Tiết Đơn Hàng</h2>
+                <span class="close-order-detail">&times;</span>
+            </div>
+            <div id="orderDetailContent">
+                <!-- Nội dung chi tiết đơn hàng (bảng sản phẩm) sẽ render ở đây -->
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderItemsBody">
+                        <!-- Items sẽ render ở đây -->
+                    </tbody>
+                </table>
+                <div class="order-total-display">
+                    Tổng cộng: <span id="modalOrderTotal"
+                        style="color: #dc3545; font-weight: bold; font-size: 20px;">0đ</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="btnCloseOrderDetail">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL THÊM/ĐỔI TÊN DANH MỤC -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="categoryModalTitle">Thêm Danh Mục Mới</h2>
+                <span class="close-category">&times;</span>
+            </div>
+            <form id="categoryForm">
+                <div class="form-group">
+                    <label for="categoryCode">Mã danh mục *</label>
+                    <input type="text" id="categoryCode" required
+                        placeholder="VD: kinhDi, thieuNhi (không dấu, camelCase)">
+                    <small style="color: #6c757d; font-size: 12px;">Lưu ý: Không dùng dấu cách, ký tự đặc biệt</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoryName">Tên hiển thị *</label>
+                    <input type="text" id="categoryName" required placeholder="VD: Sách Kinh Dị">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">💾 Lưu</button>
+                    <button type="button" class="btn-secondary" id="btnCancelCategoryModal">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

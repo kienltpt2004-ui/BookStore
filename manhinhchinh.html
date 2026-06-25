@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyaBook - Thế Giới Sách Của Bạn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mhc.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">Aya<span>Book</span></div>
+
+        <nav class="menu">
+            <a href="#" class="active">Trang chủ</a>
+            <a href="#">Cửa hàng</a>
+            <a href="#">Về chúng tôi</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+
+        <div class="user">
+            <span id="userEmail"></span>
+            <a href="chitietdonhang.html" id="cartLink" class="cart-btn">🛒 Giỏ hàng</a>
+            <button id="logout" class="logout-btn">Đăng xuất</button>
+        </div>
+    </header>
+    
+    <!-- SEARCH & WELCOME BOX -->
+    <div class="search-box">
+        <h2>Khám Phá Hàng Nghìn Đầu Sách Hay</h2>
+        <p>Tìm kiếm cuốn sách yêu thích của bạn ngay hôm nay</p>
+        <div class="search-wrapper">
+            <input type="text" id="searchBook" placeholder="🔍 Tìm kiếm sách theo tên hoặc tác giả...">
+        </div>
+    </div>
+
+    <!-- BANNER (DYNAMIC SLIDER) -->
+    <section class="banner" id="dynamicBanner">
+        <div class="banner-container">
+            <div class="banner-left" id="bannerImgContainer">
+                <img id="bannerImg" src="" alt="Book Cover">
+            </div>
+            <div class="banner-right">
+                <div class="banner-badge">🔥 Nổi bật tuần này</div>
+                <h1 id="bannerTitle">Đang tải...</h1>
+                <p class="banner-author-text" id="bannerAuthor">Tác giả: ...</p>
+                <p class="banner-desc" id="bannerDesc">Mô tả sách...</p>
+                <div class="info">
+                    <div id="bannerPrice"><strong>Giá bán:</strong> ...</div>
+                    <div id="bannerYear"><strong>Năm xuất bản:</strong> ...</div>
+                    <div id="bannerRating"><strong>Đánh giá:</strong> ...</div>
+                </div>
+                <div class="banner-actions" id="bannerActions">
+                    <!-- Nút mua hoặc nút quản lý sẽ render ở đây -->
+                </div>
+            </div>
+        </div>
+        <!-- Dot Navigation for Slider -->
+        <div class="banner-dots" id="bannerDots"></div>
+    </section>
+
+    <!-- ADD BOOK (ADMIN ONLY) -->
+    <section class="add-book">
+        <h2 class="title">Thêm sách mới</h2>
+        <form id="addBookForm">
+            <input type="text" id="addTitle" placeholder="Tên sách" required>
+            <input type="text" id="addPrice" placeholder="Giá (ví dụ: 35,000đ)" required>
+            <input type="text" id="addImg" placeholder="Link ảnh (img/... hoặc URL)" required>
+            <input type="number" id="addStock" placeholder="Số lượng tồn kho" min="0" required>
+            <button type="submit">➕ Thêm sách</button>
+        </form>
+    </section>
+
+
+    <!-- SÁCH MỚI -->
+    <h2 class="title">SÁCH MỚI</h2>
+    <div id="newBooks" class="book-list"></div>
+
+    <!-- BÁN CHẠY -->
+    <h2 class="title">BÁN CHẠY NHẤT</h2>
+    <div id="bestSellers" class="book-list"></div>
+
+    <!-- MANGA -->
+    <section class="collection">
+        <h2 class="collection-title">Manga Collection</h2>
+        <p class="collection-desc">Bộ sưu tập dành cho fan mê truyện tranh</p>
+        <div id="manga" class="book-list"></div>
+    </section>
+
+    <!-- LIFE -->
+    <section class="collection life-bg">
+        <h2 class="collection-title">Sách về kỹ năng sống cho giới trẻ</h2>
+        <div id="life" class="book-list"></div>
+    </section>
+    <!-- MODAL EDIT BOOK -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>⚙️ Quản Lý Sách</h3>
+                <span id="closeModalCross" class="close-cross">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modalTitle">Tên sách *</label>
+                    <input type="text" id="modalTitle" required placeholder="Nhập tên sách">
+                </div>
+                <div class="form-group">
+                    <label for="modalAuthor">Tác giả *</label>
+                    <input type="text" id="modalAuthor" required placeholder="Nhập tên tác giả">
+                </div>
+                <div class="form-group">
+                    <label for="modalPrice">Giá bán *</label>
+                    <input type="text" id="modalPrice" required placeholder="VD: 35,000đ">
+                </div>
+                <div class="form-group">
+                    <label for="modalStock">Số lượng tồn kho *</label>
+                    <input type="number" id="modalStock" min="0" required placeholder="VD: 10">
+                </div>
+                <div class="form-group">
+                    <label for="modalImg">Link ảnh sản phẩm *</label>
+                    <input type="text" id="modalImg" required placeholder="VD: ./img/image1.png">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="saveBook" class="modal-btn btn-save">💾 Lưu thay đổi</button>
+                <button id="deleteBook" class="modal-btn btn-delete">🗑️ Xoá sách</button>
+                <button id="closeModal" class="modal-btn btn-close">❌ Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="manhinhchinh.js"></script>
+</body>
+
+</html>

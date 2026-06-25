@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng - AyaBook</title>
+  <link rel="stylesheet" href="./chitietdonhang.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">AyaBook</div>
+    </div>
+    <div class="header-center">
+      <nav class="menu">
+        <a href="manhinhchinh.html">Trang Chủ</a>
+        <a href="#">Cửa hàng</a>
+        <a href="#">Về chúng tôi</a>
+        <a href="#">Liên hệ với chúng tôi</a>
+      </nav>
+    </div>
+    <div class="header-right">
+
+      <button class="contact-btn">Liên hệ</button>
+
+      <a href="#" class="logout" id="logout">Đăng xuất</a>
+    </div>
+  </header>
+
+  <div class="order-detail-wrapper">
+    <div class="left-section">
+      <div class="order-product" id="cartItems">
+        <!-- Sản phẩm sẽ được render ở đây -->
+      </div>
+
+      <!-- FORM ĐỊA CHỈ GIAO HÀNG -->
+      <div class="shipping-info">
+        <h3 class="shipping-title">📦 THÔNG TIN GIAO HÀNG</h3>
+        <form id="shippingForm">
+          <div class="form-group">
+            <label for="fullName">Họ và tên <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Số điện thoại <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Nhập email" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Địa chỉ <span class="required">*</span></label>
+            <input type="text" id="address" name="address" placeholder="Số nhà, tên đường" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">Tỉnh/Thành phố <span class="required">*</span></label>
+              <select id="city" name="city" required>
+                <option value="">Chọn tỉnh/thành phố</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hải Phòng">Hải Phòng</option>
+                <option value="Cần Thơ">Cần Thơ</option>
+                <option value="Khác">Khác</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="district">Quận/Huyện <span class="required">*</span></label>
+              <input type="text" id="district" name="district" placeholder="Nhập quận/huyện" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="note">Ghi chú</label>
+            <textarea id="note" name="note" rows="3" placeholder="Ghi chú thêm về đơn hàng (tùy chọn)"></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- PHƯƠNG THỨC THANH TOÁN -->
+      <div class="payment-methods">
+        <h3 class="shipping-title">💳 PHƯƠNG THỨC THANH TOÁN</h3>
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Tiền mặt" checked>
+            <div class="payment-info">
+              <span class="payment-name">Thanh toán khi nhận hàng (COD)</span>
+              <p class="payment-desc">Thanh toán bằng tiền mặt khi giao hàng tận nơi</p>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Chuyển khoản">
+            <div class="payment-info">
+              <span class="payment-name">Chuyển khoản ngân hàng</span>
+              <p class="payment-desc">Chuyển khoản qua số tài khoản ngân hàng của chúng tôi</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h3 class="summary-title">THÔNG TIN ĐƠN HÀNG</h3>
+
+      <div class="summary-row">
+        <span>Tạm tính:</span>
+        <span class="price" id="subtotal">0đ</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Phí vận chuyển:</span>
+        <span class="price" id="shippingFee">30,000đ</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Giảm giá:</span>
+        <span class="price">0đ</span>
+      </div>
+
+      <hr />
+
+      <div class="summary-row total">
+        <span>Thành tiền:</span>
+        <span class="price" id="total">0đ</span>
+      </div>
+
+      <button class="checkout-btn" id="checkoutBtn">Tiến hành thanh toán</button>
+    </div>
+  </div>
+
+  <script src="./chitietdonhang.js"></script>
+</body>
+
+</html>

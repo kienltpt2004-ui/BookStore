@@ -1,0 +1,678 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "verified": true,
+      "name": "Admin"
+    },
+    {
+      "id": "c6eb",
+      "email": "vietanhtralinh04@gmail.com",
+      "password": "123456",
+      "name": "vanh",
+      "verified": true
+    },
+    {
+      "id": "d3f2",
+      "email": "abc@gmail.com",
+      "name": "B",
+      "password": "123456"
+    },
+    {
+      "id": "1393",
+      "email": "nvs@gmail.com",
+      "name": "aa",
+      "password": "123123"
+    },
+    {
+      "id": "450d",
+      "email": "kien@gmail.com",
+      "password": "888888",
+      "name": "Kiên",
+      "verified": false,
+      "token": "943768"
+    },
+    {
+      "id": "b93c",
+      "email": "vanh@gmail.com",
+      "password": "666666",
+      "name": "Vanh",
+      "verified": false,
+      "token": "490300"
+    }
+  ],
+  "categories": [
+    {
+      "id": "newBooks",
+      "name": "Sách Mới"
+    },
+    {
+      "id": "bestSellers",
+      "name": "Bán Chạy"
+    },
+    {
+      "id": "manga",
+      "name": "Truyện Tranh"
+    },
+    {
+      "id": "life",
+      "name": "Kỹ Năng Sống"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Nina ở thị trấn cao nguyên - Tập 1",
+      "author": "Nguyễn Nhật Ánh",
+      "price": "34,200đ",
+      "img": "./img/image 5.png",
+      "category": "newBooks",
+      "description": "Câu chuyện về cô bé Nina và những cuộc phiêu lưu kỳ thú tại thị trấn cao nguyên đầy thơ mộng.",
+      "year": 2024,
+      "pages": 180,
+      "rating": 4.5,
+      "stock": 30
+    },
+    {
+      "id": "2",
+      "title": "Những ngày tết ta",
+      "author": "Tô Hoài",
+      "price": "81,000đ",
+      "img": "./img/image 6.png",
+      "category": "newBooks",
+      "description": "Tái hiện những phong tục tập quán, nét đẹp văn hóa truyền thống của người Việt trong dịp Tết.",
+      "year": 2024,
+      "pages": 256,
+      "rating": 4.8,
+      "stock": 35
+    },
+    {
+      "id": "3",
+      "title": "World Trigger - Tập 4",
+      "author": "Daisuke Ashihara",
+      "price": "31,500đ",
+      "img": "img/image 7.png",
+      "category": "newBooks",
+      "description": "Manga hành động về các chiến binh bảo vệ thế giới khỏi những kẻ xâm lược từ chiều không gian khác.",
+      "year": 2023,
+      "pages": 192,
+      "rating": 4.6,
+      "stock": 42
+    },
+    {
+      "id": "4",
+      "title": "Những người bạn từ trang sách",
+      "author": "Matt Haig",
+      "price": "85,500đ",
+      "img": "img/image 8.png",
+      "category": "newBooks",
+      "description": "Một câu chuyện ấm áp về tình bạn, sách vở và sức mạnh của những câu chuyện kết nối con người.",
+      "year": 2024,
+      "pages": 320,
+      "rating": 4.7,
+      "stock": 28
+    },
+    {
+      "id": "5",
+      "title": "Crayon Shinchan - Tập 1",
+      "author": "Yoshito Usui",
+      "price": "40,000đ",
+      "img": "./img/image 17.png",
+      "category": "bestSellers",
+      "description": "Những câu chuyện hài hước về cậu bé Shin và gia đình nhỏ đầy tiếng cười.",
+      "year": 2020,
+      "pages": 160,
+      "rating": 4.9,
+      "stock": 100
+    },
+    {
+      "id": "6",
+      "title": "Thám tử Conan - Tập 3",
+      "author": "Aoyama Gosho",
+      "price": "32,000đ",
+      "img": "./img/image 18.png",
+      "category": "bestSellers",
+      "description": "Thám tử nhí Conan giải quyết những vụ án bí ẩn với trí thông minh phi thường.",
+      "year": 2021,
+      "pages": 200,
+      "rating": 4.8,
+      "stock": 85
+    },
+    {
+      "id": "7",
+      "title": "Doraemon - Tập 5",
+      "author": "Fujiko F. Fujio",
+      "price": "29,000đ",
+      "img": "./img/image 12.png",
+      "category": "bestSellers",
+      "description": "Chú mèo máy đến từ tương lai cùng những bảo bối thần kỳ giúp đỡ Nobita.",
+      "year": 2022,
+      "pages": 176,
+      "rating": 5,
+      "stock": 120
+    },
+    {
+      "id": "8",
+      "title": "Dragon Quest - Tập 2",
+      "author": "Riku Sanjo",
+      "price": "35,000đ",
+      "img": "./img/image 20.png",
+      "category": "bestSellers",
+      "description": "Cuộc phiêu lưu tìm kiếm kho báu và chiến đấu với những con rồng huyền thoại.",
+      "year": 2023,
+      "pages": 188,
+      "rating": 4.4,
+      "stock": 60
+    },
+    {
+      "id": "9",
+      "title": "XE BUÝT ĐƯA EM ĐI",
+      "author": "Cole Joanna",
+      "price": "36,000đ",
+      "img": "./img/image 9.png",
+      "category": "manga",
+      "description": "Chuyến xe buýt kỳ diệu đưa các em nhỏ khám phá thế giới khoa học đầy thú vị.",
+      "year": 2023,
+      "pages": 144,
+      "rating": 4.6,
+      "stock": 45
+    },
+    {
+      "id": "10",
+      "title": "Ninja Rantaro - T19",
+      "author": "Sobee Amako",
+      "price": "36,000đ",
+      "img": "./img/image 10.png",
+      "category": "manga",
+      "description": "Những cuộc phiêu lưu hài hước của chàng ninja tập sự Rantaro và các bạn.",
+      "year": 2022,
+      "pages": 168,
+      "rating": 4.5,
+      "stock": 38
+    },
+    {
+      "id": "11",
+      "title": "Doctor Stone - T21",
+      "author": "Riichiro Inagaki",
+      "price": "22,500đ",
+      "img": "./img/image 11.png",
+      "category": "manga",
+      "description": "Xây dựng lại nền văn minh từ thời đồ đá với sức mạnh của khoa học.",
+      "year": 2023,
+      "pages": 192,
+      "rating": 4.7,
+      "stock": 55
+    },
+    {
+      "id": "12",
+      "title": "Đội quân Doraemon - T4",
+      "author": "Fujiko F. Fujio",
+      "price": "19,800đ",
+      "img": "./img/image 12.png",
+      "category": "manga",
+      "description": "Doraemon và những người bạn cùng nhau bảo vệ hòa bình cho thế giới.",
+      "year": 2022,
+      "pages": 152,
+      "rating": 4.8,
+      "stock": 70
+    },
+    {
+      "id": "13",
+      "title": "THIỀN ĐỊNH MỖI NGÀY",
+      "author": "Thích Nhất Hạnh",
+      "price": "118,000đ",
+      "img": "./img/image 13.png",
+      "category": "life",
+      "description": "Hướng dẫn thực hành thiền định để sống an lạc, tỉnh thức trong từng khoảnh khắc.",
+      "year": 2023,
+      "pages": 280,
+      "rating": 4.9,
+      "stock": 25
+    },
+    {
+      "id": "14",
+      "title": "MỘT NĂM SỐNG TỬ TẾ",
+      "author": "Gretchen Rubin",
+      "price": "168,000đ",
+      "img": "./img/image 14.png",
+      "category": "life",
+      "description": "Hành trình 12 tháng thay đổi bản thân để sống tử tế và hạnh phúc hơn mỗi ngày.",
+      "year": 2024,
+      "pages": 368,
+      "rating": 4.7,
+      "stock": 29
+    },
+    {
+      "id": "15",
+      "title": "THẦN SỐ HỌC",
+      "author": "Lê Đỗ Quỳnh Hương",
+      "price": "181,000đ",
+      "img": "./img/image 15.png",
+      "category": "life",
+      "description": "Khám phá bản thân và vận mệnh thông qua những con số trong cuộc đời bạn.",
+      "year": 2023,
+      "pages": 312,
+      "rating": 4.5,
+      "stock": 20
+    },
+    {
+      "id": "16",
+      "title": "DÁM NGHĨ LẠI",
+      "author": "Adam Grant",
+      "price": "117,800đ",
+      "img": "./img/image 16.png",
+      "category": "life",
+      "description": "Sức mạnh của việc biết nghi ngờ những gì bạn biết và mở lòng với những ý tưởng mới.",
+      "year": 2024,
+      "pages": 296,
+      "rating": 4.8,
+      "stock": 40
+    },
+    {
+      "id": "7468",
+      "title": "Nina ở thị trấn cao nguyên - Tập 2",
+      "author": "Nguyễn Nhật Ánh",
+      "price": "40,000đ",
+      "img": "./img/image 5.png",
+      "category": "newBooks",
+      "description": "Tiếp tục hành trình khám phá của Nina với những người bạn mới và bài học ý nghĩa.",
+      "year": 2024,
+      "pages": 196,
+      "rating": 4.6,
+      "stock": 48
+    },
+    {
+      "id": "51b1",
+      "title": "Crayon Shinchan - Tập 4",
+      "author": "Yoshito Usui",
+      "price": "99,999đ",
+      "img": "./img/image 17.png",
+      "category": "manga",
+      "description": "Những tình huống dở khóc dở cười của Shin và những trò nghịch ngợm không ngừng nghỉ.",
+      "year": 2021,
+      "pages": 164,
+      "rating": 4.7,
+      "stock": 15
+    },
+    {
+      "id": "da4d",
+      "title": "Doraemon-truyện dài",
+      "author": "Fujiko F. Fujio",
+      "price": "30,000đ",
+      "img": "https://th.bing.com/th/id/OIP.HU42KXcmKotDvfb_WgNmWAHaEo?w=294&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "category": "bestSellers",
+      "description": "Những câu chuyện dài hấp dẫn về Doraemon và nhóm bạn trong các cuộc phiêu lưu vĩ đại.",
+      "year": 2022,
+      "pages": 224,
+      "rating": 4.9,
+      "stock": 90
+    }
+  ],
+  "orders": [
+    {
+      "id": "8266",
+      "userId": "c6eb",
+      "userEmail": "vietanhtralinh04@gmail.com",
+      "items": [
+        {
+          "id": "3",
+          "title": "World Trigger - Tập 4",
+          "price": "31,500đ",
+          "img": "img/image 7.png",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1
+        },
+        {
+          "id": "7",
+          "title": "Doraemon - Tập 5",
+          "price": "29,000đ",
+          "img": "./img/image 12.png",
+          "quantity": 1
+        }
+      ],
+      "total": "141.500đ",
+      "date": "2025-12-23T08:42:30.033Z",
+      "status": "Đang xử lý",
+      "paymentStatus": "Đã thanh toán"
+    },
+    {
+      "id": "6740",
+      "userId": "c6eb",
+      "userEmail": "vietanhtralinh04@gmail.com",
+      "items": [
+        {
+          "id": "1",
+          "title": "Nina ở thị trấn cao nguyên - Tập 2",
+          "price": "34,200đ",
+          "img": "./img/image 5.png",
+          "quantity": 1
+        },
+        {
+          "id": "13",
+          "title": "THIỀN ĐỊNH MỖI NGÀY",
+          "price": "118,000đ",
+          "img": "./img/image 13.png",
+          "quantity": 1
+        }
+      ],
+      "total": "152.200đ",
+      "date": "2025-12-23T08:42:43.681Z",
+      "status": "Đã giao"
+    },
+    {
+      "id": "8d78",
+      "userId": "d3f2",
+      "userEmail": "a@gmail.com",
+      "items": [
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1
+        },
+        {
+          "id": "d3ed",
+          "title": "World Trigger - Tập 4",
+          "price": "89,000đ",
+          "img": "./img/image 17.png",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "title": "Dragon Quest - Tập 2",
+          "price": "35,000đ",
+          "img": "./img/image 20.png",
+          "quantity": 1
+        },
+        {
+          "id": "7",
+          "title": "Doraemon - Tập 5",
+          "price": "29,000đ",
+          "img": "./img/image 12.png",
+          "quantity": 1
+        }
+      ],
+      "total": "234.000đ",
+      "date": "2025-12-23T09:07:27.328Z",
+      "status": "Đã hủy"
+    },
+    {
+      "id": "f14f",
+      "userId": null,
+      "userEmail": "nvb@gmail.com",
+      "items": [
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "title": "World Trigger - Tập 4",
+          "price": "31,500đ",
+          "img": "img/image 7.png",
+          "quantity": 1
+        }
+      ],
+      "total": "112.500đ",
+      "date": "2025-12-23T15:45:14.439Z",
+      "status": "Đã giao"
+    },
+    {
+      "id": "1657",
+      "userId": "450d",
+      "userEmail": "kien@gmail.com",
+      "items": [
+        {
+          "id": "1",
+          "title": "Nina ở thị trấn cao nguyên - Tập 1",
+          "price": "34,200đ",
+          "img": "./img/image 5.png",
+          "quantity": 3
+        }
+      ],
+      "total": "102.600đ",
+      "date": "2025-12-26T06:14:04.307Z"
+    },
+    {
+      "id": "1842",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "3",
+          "title": "World Trigger - Tập 4",
+          "price": "31,500đ",
+          "img": "img/image 7.png",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": "sssss"
+      },
+      "subtotal": "112.500đ",
+      "shippingFee": "30.000đ",
+      "total": "142.500đ",
+      "date": "2025-12-26T08:41:28.775Z",
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "0399",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "1",
+          "title": "Nina ở thị trấn cao nguyên - Tập 1",
+          "price": "34,200đ",
+          "img": "./img/image 5.png",
+          "quantity": 1,
+          "maxStock": 30
+        },
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1,
+          "maxStock": 35
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": "ssss"
+      },
+      "subtotal": "115.200đ",
+      "shippingFee": "30.000đ",
+      "total": "145.200đ",
+      "paymentMethod": "Tiền mặt",
+      "paymentStatus": "Thanh toán khi nhận hàng",
+      "date": "2025-12-26T09:02:35.290Z",
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "8d0b",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "3",
+          "title": "World Trigger - Tập 4",
+          "price": "31,500đ",
+          "img": "img/image 7.png",
+          "quantity": 1,
+          "maxStock": 42
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van b",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": ""
+      },
+      "subtotal": "31.500đ",
+      "shippingFee": "30.000đ",
+      "total": "61.500đ",
+      "paymentMethod": "Chuyển khoản",
+      "paymentStatus": "Chưa thanh toán",
+      "date": "2025-12-26T09:03:03.502Z",
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "b8c3",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "da4d",
+          "title": "Doraemon-truyện dài",
+          "price": "30,000đ",
+          "img": "https://th.bing.com/th/id/OIP.HU42KXcmKotDvfb_WgNmWAHaEo?w=294&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "quantity": 1,
+          "maxStock": 90
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": ""
+      },
+      "subtotal": "30.000đ",
+      "shippingFee": "30.000đ",
+      "total": "60.000đ",
+      "paymentMethod": "Tiền mặt",
+      "paymentStatus": "Thanh toán khi nhận hàng",
+      "date": "2025-12-26T09:04:43.779Z",
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "25c0",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1,
+          "maxStock": 35
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": ""
+      },
+      "subtotal": "81.000đ",
+      "shippingFee": "30.000đ",
+      "total": "111.000đ",
+      "paymentMethod": "Tiền mặt",
+      "paymentStatus": "Thanh toán khi nhận hàng",
+      "date": "2025-12-26T09:15:01.538Z",
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "7a89",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1,
+          "maxStock": 35
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": ""
+      },
+      "subtotal": "81.000đ",
+      "shippingFee": "30.000đ",
+      "total": "111.000đ",
+      "paymentMethod": "Tiền mặt",
+      "paymentStatus": "Thanh toán khi nhận hàng",
+      "date": "2025-12-26T09:18:46.867Z",
+      "status": "Đã giao"
+    },
+    {
+      "id": "e0d1",
+      "userId": "d3f2",
+      "userEmail": "abc@gmail.com",
+      "items": [
+        {
+          "id": "2",
+          "title": "Những ngày tết ta",
+          "price": "81,000đ",
+          "img": "./img/image 6.png",
+          "quantity": 1,
+          "maxStock": 35
+        }
+      ],
+      "shippingInfo": {
+        "fullName": "nguyen van a",
+        "phone": "0393022293",
+        "email": "abc@gmail.com",
+        "address": "ww",
+        "city": "Hà Nội",
+        "district": "Thanh trì",
+        "note": ""
+      },
+      "subtotal": "81.000đ",
+      "shippingFee": "30.000đ",
+      "total": "111.000đ",
+      "paymentMethod": "Tiền mặt",
+      "paymentStatus": "Thanh toán khi nhận hàng",
+      "date": "2025-12-26T09:30:52.528Z",
+      "status": "Đang xử lý"
+    }
+  ]
+}

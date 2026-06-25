@@ -1,0 +1,357 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #cfe8ef;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #bfe3ec;
+    padding: 15px 40px;
+}
+
+.header-left .logo {
+    height: 40px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    gap: 10px;
+}
+
+.icon img {
+    width: 24px;
+    cursor: pointer;
+}
+
+.contact-btn,
+.logout {
+    padding: 8px 16px;
+    background: #f25c82;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* GIỎ HÀNG */
+.order-detail-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    padding: 40px 60px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-product {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* FORM ĐỊA CHỈ GIAO HÀNG */
+.shipping-info {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.shipping-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.required {
+    color: #f25c82;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #f25c82;
+}
+
+.form-group input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.product-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.book-image {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.book-price {
+    color: #f25c82;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.quantity .number {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.total {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.total span {
+    color: #f25c82;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+}
+
+/* THÔNG TIN ĐƠN HÀNG */
+.order-summary {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.summary-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.price {
+    color: #f25c82;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background: #45a049;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-cart h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    margin-bottom: 20px;
+}
+
+.empty-cart a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f25c82;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* PHƯƠNG THỨC THANH TOÁN */
+.payment-methods {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.payment-option:hover {
+    border-color: #f25c82;
+    background-color: #fff9fa;
+}
+
+.payment-option input[type="radio"] {
+    margin-top: 4px;
+    accent-color: #f25c82;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.payment-desc {
+    font-size: 13px;
+    color: #666;
+}
+
+.payment-option input[type="radio"]:checked+.payment-info .payment-name {
+    color: #f25c82;
+}
+
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: #f25c82;
+    background-color: #fff0f3;
+}
