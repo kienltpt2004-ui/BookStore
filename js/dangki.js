@@ -20,7 +20,7 @@ if (!form || !emailInput || !passwordInput || !nameInput || !agreeCheckbox) {
 
         // Kiểm tra trống
         if (!email || !password || !name) {
-            alert("Vui lòng nhập đầy đủ thông tin");
+            showToast("Vui lòng nhập đầy đủ thông tin", "warning");
             return;
         }
 

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = passwordInput.value.trim();
 
         if (!email || !password) {
-            alert("Vui lòng nhập đầy đủ email và mật khẩu");
+            showToast("Vui lòng nhập đầy đủ email và mật khẩu", "warning");
             return;
         }
 
@@ -41,15 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     // LƯU LOGIN VÀO SESSION (CHỈ TRONG TAB NÀY)
                     sessionStorage.setItem("userLogin", JSON.stringify(user));
 
-                    alert("Đăng nhập thành công");
                     window.location.href = "manhinhchinh.html";
                 } else {
-                    alert("Email hoặc mật khẩu không đúng");
+                    showToast("Email hoặc mật khẩu không đúng", "error");
                 }
             })
             .catch(err => {
                 console.error("Lỗi server:", err);
-                alert("Không kết nối được server");
+                showToast("⚠️ Không kết nối được server", "error");
             });
     });
 

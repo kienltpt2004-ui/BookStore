@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ================= KIỂM TRA QUYỀN ADMIN ================= */
     const userStr = sessionStorage.getItem("userLogin");
     if (!userStr) {
-        alert("⚠️ Vui lòng đăng nhập để truy cập trang này!");
+        showToast("⚠️ Vui lòng đăng nhập để truy cập trang này!", "warning");
         window.location.replace("dangnhap.html");
         return;
     }
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Chỉ admin mới được truy cập
     if (user.email !== "admin@gmail.com") {
-        alert("⛔ Bạn không có quyền truy cập trang này!");
+        showToast("⛔ Bạn không có quyền truy cập trang này!", "error");
         window.location.replace("manhinhchinh.html");
         return;
     }
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = document.getElementById("productCategory").value;
 
             if (!title || !price || !img || !category) {
-                alert("❌ Vui lòng điền đủ thông tin!");
+                showToast("❌ Vui lòng điền đủ thông tin!", "error");
                 return;
             }
 
@@ -173,12 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!response.ok) throw new Error("Không thể lưu dữ liệu lên server");
 
-                alert(editingProductId ? "✅ Cập nhật sản phẩm thành công!" : "✅ Thêm sản phẩm thành công!");
+                showToast(editingProductId ? "✅ Cập nhật sản phẩm thành công!" : "✅ Thêm sản phẩm thành công!", "success");
                 hideModal();
                 initData(); // Tải lại dữ liệu mới nhất
             } catch (err) {
                 console.error("Lỗi khi lưu sản phẩm:", err);
-                alert("❌ Lỗi: " + err.message);
+                showToast("❌ Lỗi: " + err.message, "error");
             }
         });
     }
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tìm sản phẩm trong mảng local (đã tải từ initData)
         const product = allProducts.find(p => p.id == id);
         if (!product) {
-            alert("❌ Không tìm thấy thông tin sản phẩm!");
+            showToast("❌ Không tìm thấy thông tin sản phẩm!", "error");
             return;
         }
 
@@ -213,11 +213,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!response.ok) throw new Error("Server từ chối yêu cầu xóa");
 
-            alert("✅ Đã xóa sản phẩm thành công!");
+            showToast("✅ Đã xóa sản phẩm thành công!", "success");
             initData(); // Cập nhật lại giao diện
         } catch (err) {
             console.error("Lỗi khi xóa sản phẩm:", err);
-            alert("❌ Lỗi: " + err.message);
+            showToast("❌ Lỗi: " + err.message, "error");
         }
     }
 
@@ -330,10 +330,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const id = document.getElementById("categoryCode").value.trim();
             const name = document.getElementById("categoryName").value.trim();
 
-            if (!id || !name) return alert("Thiếu thông tin!");
+            if (!id || !name) return showToast("Thiếu thông tin!", "warning");
 
             if (!/^[a-zA-Z0-9_]+$/.test(id)) {
-                return alert("Mã danh mục chỉ được chứa chữ, số và gạch dưới!");
+                return showToast("Mã danh mục chỉ được chứa chữ, số và gạch dưới!", "warning");
             }
 
             if (isEditingCat) {
@@ -343,21 +343,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id, name })
                 }).then(() => {
-                    alert("✅ Sửa danh mục thành công");
+                    showToast("✅ Sửa danh mục thành công", "success");
                     hideCatModal();
                     initData();
                 });
             } else {
                 // Thêm: POST /categories
                 // Check tồn tại
-                if (allCategories.find(c => c.id === id)) return alert("Mã danh mục đã tồn tại!");
+                if (allCategories.find(c => c.id === id)) return showToast("Mã danh mục đã tồn tại!", "warning");
 
                 fetch("http://localhost:3000/categories", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id, name })
                 }).then(() => {
-                    alert("✅ Thêm danh mục thành công");
+                    showToast("✅ Thêm danh mục thành công", "success");
                     hideCatModal();
                     initData();
                 });
@@ -388,10 +388,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return fetch(`http://localhost:3000/categories/${id}`, { method: "DELETE" });
             })
             .then(() => {
-                alert("✅ Đã xóa danh mục và sản phẩm liên quan");
+                showToast("✅ Đã xóa danh mục và sản phẩm liên quan", "success");
                 initData();
             })
-            .catch(err => alert("Lỗi: " + err));
+            .catch(err => showToast("Lỗi: " + err, "error"));
     }
 
     /* ================= QUẢN LÝ USERS ================= */
@@ -599,10 +599,10 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const res = await fetch(`http://localhost:3000/orders/${orderId}`, { method: "DELETE" });
             if (!res.ok) throw new Error("Lỗi xóa đơn hàng");
-            alert("✅ Đã xóa đơn hàng!");
+            showToast("✅ Đã xóa đơn hàng!", "success");
             loadOrders();
         } catch (err) {
-            alert("❌ Lỗi: " + err.message);
+            showToast("❌ Lỗi: " + err.message, "error");
         }
     };
 
@@ -639,9 +639,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Đã hủy": "❌ Đơn hàng đã bị hủy"
             };
 
-            alert(statusMessages[newStatus] || "Đã cập nhật trạng thái");
+            showToast(statusMessages[newStatus] || "Đã cập nhật trạng thái", "info");
         } catch (err) {
-            alert("❌ Lỗi: " + err.message);
+            showToast("❌ Lỗi: " + err.message, "error");
             loadOrders(); // Reload để reset về trạng thái cũ
         }
     };
@@ -661,10 +661,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const order = allOrders.find(o => o.id === orderId);
             if (order) order.paymentStatus = newStatus;
 
-            alert("✅ Đã cập nhật trạng thái thanh toán!");
+            showToast("✅ Đã cập nhật trạng thái thanh toán!", "success");
             loadOrders(); // Reload để cập nhật màu sắc
         } catch (err) {
-            alert("❌ Lỗi: " + err.message);
+            showToast("❌ Lỗi: " + err.message, "error");
             loadOrders();
         }
     };
